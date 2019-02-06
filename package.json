@@ -1,0 +1,23 @@
+{
+  "name": "weather_now_app_nodejs",
+  "version": "1.0.0",
+  "description": "\"\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejydavis/Weather_Now.git"
+  },
+  "author": "Jesse Yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejydavis/Weather_Now/issues"
+  },
+  "homepage": "https://github.com/ejydavis/Weather_Now#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "yargs": "^12.0.5"
+  }
+}
