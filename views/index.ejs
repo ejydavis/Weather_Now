@@ -25,28 +25,58 @@
                     <br>
                     <input type="submit" class="ghost-button" value="Get Weather Now">
                   </form>
-                  <% if(weather !== null){ %>
-                    <p><%= weather %></p>
-                  <% } %>
-                  <% if(error !== null){ %>
-                    <p><%= error %></p>
-                  <% } %>
                 </fieldset>
           </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row mx-auto">
-        <div class="container col-4">
-          <h3>First</h3>
+      <div class="row mx-auto mt-2">
+        <div class="container col-12 col-md-4 mt-2">
+          <div class="card text-center mx-auto" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Placeholder</h5>
+              <p class="card-text">
+                The Humidity of:
+                <br>
+                <% if(weather !== null){ %>
+                  <p><%= weather %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
+                <br>
+                is
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="container col-4">
-          <h3>Second</h3>
+        <div class="container col-12 col-md-4 mt-2">
+          <div class="card text-center mx-auto" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Placeholder</h5>
+              <p class="card-text">
+                The Current Temperature of
+                <br>
+
+                <br>
+                is
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="container col-4">
-          <h3>Third</h3>
+        <div class="container col-12 col-md-4 mt-2">
+          <div class="card text-center mx-auto" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Placeholder</h5>
+              <p class="card-text">
+                The Wind Speed of
+                <br>
+
+                <br>
+                is
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   </body>
 </html>
