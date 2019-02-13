@@ -26,7 +26,13 @@ app.post('/', function (req, res) {
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
   request(url, function (err, response, body) {
     if(err){
-      res.render('index', {weather: null, error: 'Error, please try again'});
+      res.render('index', {
+        weather: null,
+        cityName: null,
+        cityTemp: null,
+        cityHumidity: null,
+        cityWind: null,
+        error: 'Error, please try again'});
     } else {
       let weather = JSON.parse(body);
       if(weather.main == undefined) {
@@ -36,12 +42,7 @@ app.post('/', function (req, res) {
         let cityQuery = `${weather.name}`;
         let humitidyQuery = `${weather.main.humidity}`;
         let windQuery = `${weather.wind.speed}`;
-        let test = "Test";
-        let weatherQuery = ["Nothing Yet","Still nothing"];
-        for (i = 0; i < weather.weather.length; i++) {
-          weatherQuery.push(weather.weather[i]);
-        }
-        res.render('index', {cityWeather: test, cityHumidity: humitidyQuery, cityWind: windQuery, cityName: cityQuery, cityTemp: tempQuery, error: null});
+        res.render('index', {cityHumidity: humitidyQuery, cityWind: windQuery, cityName: cityQuery, cityTemp: tempQuery, error: null});
         console.log(weather);
       }
     }
