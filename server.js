@@ -36,7 +36,12 @@ app.post('/', function (req, res) {
         let cityQuery = `${weather.name}`;
         let humitidyQuery = `${weather.main.humidity}`;
         let windQuery = `${weather.wind.speed}`;
-        res.render('index', {cityHumidity: humitidyQuery, cityWind: windQuery, cityName: cityQuery, cityTemp: tempQuery, error: null});
+        let test = "Test";
+        let weatherQuery = ["Nothing Yet","Still nothing"];
+        for (i = 0; i < weather.weather.length; i++) {
+          weatherQuery.push(weather.weather[i]);
+        }
+        res.render('index', {cityWeather: test, cityHumidity: humitidyQuery, cityWind: windQuery, cityName: cityQuery, cityTemp: tempQuery, error: null});
         console.log(weather);
       }
     }

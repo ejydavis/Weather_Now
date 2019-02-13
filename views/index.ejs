@@ -35,36 +35,13 @@
       </div>
     </div>
       <div class="row mx-auto mt-2">
-        <div class="container col-12 col-md-4 mt-2">
-          <div class="card text-center mx-auto" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Placeholder</h5>
-              <p class="card-text">
-                <% if(cityHumidity !== null){ %>
-                  <p><%= cityHumidity %></p>
-                <% } %>
-                <% if(error !== null){ %>
-                  <p><%= error %></p>
-                <% } %>
-                <br>
-                The Current Humidity at
-                <% if(cityName !== null){ %>
-                  <p><%= cityName %></p>
-                <% } %>
-                <% if(error !== null){ %>
-                  <p><%= error %></p>
-                <% } %>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="container col-12 col-md-4 mt-2">
+        <div class="container col-12 col-md-3 mt-2">
           <div class="card text-center mx-auto" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">Placeholder</h5>
               <p class="card-text">
                 <% if(cityTemp !== null){ %>
-                  <p><%= cityTemp %></p>
+                  <p class="weather-item"><%= cityTemp %>&#8457</p>
                 <% } %>
                 <% if(error !== null){ %>
                   <p><%= error %></p>
@@ -81,13 +58,59 @@
             </div>
           </div>
         </div>
-        <div class="container col-12 col-md-4 mt-2">
+        <div class="container col-12 col-md-3 mt-2">
+          <div class="card text-center mx-auto" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Placeholder</h5>
+              <p class="card-text">
+                <% if(cityWeather !== null){ %>
+                  <p class="weather-item"><%= cityWeather %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
+                <br>
+                The Current Wind Speed of
+                <% if(cityName !== null){ %>
+                  <p><%= cityName %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container col-12 col-md-3 mt-2">
+          <div class="card text-center mx-auto" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Placeholder</h5>
+              <p class="card-text">
+                <% if(cityHumidity !== null){ %>
+                  <p class="weather-item"><%= cityHumidity %>%</p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
+                <br>
+                The Current Humidity at
+                <% if(cityName !== null){ %>
+                  <p><%= cityName %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container col-12 col-md-3 mt-2">
           <div class="card text-center mx-auto" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">Placeholder</h5>
               <p class="card-text">
                 <% if(cityWind !== null){ %>
-                  <p><%= cityWind %></p>
+                  <p class="weather-item"><%= cityWind %> mph</p>
                 <% } %>
                 <% if(error !== null){ %>
                   <p><%= error %></p>
