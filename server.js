@@ -32,8 +32,11 @@ app.post('/', function (req, res) {
       if(weather.main == undefined) {
         res.render('index', {weather: null, error: 'Error, please try again'});
       } else {
-        let weatherQuery = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-        res.render('index', {weather: weatherQuery, error: null});
+        let tempQuery = `${weather.main.temp}`;
+        let cityQuery = `${weather.name}`;
+        let humitidyQuery = `${weather.main.humidity}`;
+        let windQuery = `${weather.wind.speed}`;
+        res.render('index', {cityHumidity: humitidyQuery, cityWind: windQuery, cityName: cityQuery, cityTemp: tempQuery, error: null});
         console.log(weather);
       }
     }

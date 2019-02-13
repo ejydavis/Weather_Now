@@ -12,18 +12,23 @@
   </head>
   <body>
     <div class="container">
-      <div class="row justify-content-center align-items-center">
-        <h1>Weather Now</h1>
+      <div class="row mt-2">
+        <div class="container text-center">
+          <h1>Weather Now</h1>
+        </div>
+        <div class="container text-center">
+          <p>Enter a city and get some neat weather details in real-time!</p>
+        </div>
       </div>
     </div>
     <div class="container">
       <div class="row mx-auto justify-content-center">
-          <div class="container col-12 text-center">
+          <div class="container col-12 text-center mt-2">
                 <fieldset>
                   <form action="/" method="post">
-                    <input name="city" type="text" class="ghost-input" placeholder="Give me a City!" style="text-align: center" required>
+                    <input name="city" type="text" class="ghost-input mt-2" placeholder="" style="text-align: center; width: 50%" required>
                     <br>
-                    <input type="submit" class="ghost-button" value="Get Weather Now">
+                    <input type="submit" class="ghost-button mt-2" value="Get Weather Now" style="cursor: pointer">
                   </form>
                 </fieldset>
           </div>
@@ -35,16 +40,20 @@
             <div class="card-body">
               <h5 class="card-title">Placeholder</h5>
               <p class="card-text">
-                The Humidity of:
-                <br>
-                <% if(weather !== null){ %>
-                  <p><%= weather %></p>
+                <% if(cityHumidity !== null){ %>
+                  <p><%= cityHumidity %></p>
                 <% } %>
                 <% if(error !== null){ %>
                   <p><%= error %></p>
                 <% } %>
                 <br>
-                is
+                The Current Humidity at
+                <% if(cityName !== null){ %>
+                  <p><%= cityName %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
               </p>
             </div>
           </div>
@@ -54,11 +63,20 @@
             <div class="card-body">
               <h5 class="card-title">Placeholder</h5>
               <p class="card-text">
-                The Current Temperature of
+                <% if(cityTemp !== null){ %>
+                  <p><%= cityTemp %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
                 <br>
-
-                <br>
-                is
+                The Current Temperature at
+                <% if(cityName !== null){ %>
+                  <p><%= cityName %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
               </p>
             </div>
           </div>
@@ -68,11 +86,20 @@
             <div class="card-body">
               <h5 class="card-title">Placeholder</h5>
               <p class="card-text">
-                The Wind Speed of
+                <% if(cityWind !== null){ %>
+                  <p><%= cityWind %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
                 <br>
-
-                <br>
-                is
+                The Current Wind Speed of
+                <% if(cityName !== null){ %>
+                  <p><%= cityName %></p>
+                <% } %>
+                <% if(error !== null){ %>
+                  <p><%= error %></p>
+                <% } %>
               </p>
             </div>
           </div>
