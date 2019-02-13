@@ -17,7 +17,14 @@ app.set('view engine','ejs')
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-  res.render('index', {weather: null, error: null});
+  res.render('index', {
+    weather: null, 
+    cityName: null,
+    cityTemp: null,
+    cityHumidity: null,
+    cityWind: null,
+    error: null
+  });
 })
 
 app.post('/', function (req, res) {
@@ -32,17 +39,31 @@ app.post('/', function (req, res) {
         cityTemp: null,
         cityHumidity: null,
         cityWind: null,
-        error: 'Error, please try again'});
+        error: 'Error, please try again'
+      });
     } else {
       let weather = JSON.parse(body);
       if(weather.main == undefined) {
-        res.render('index', {weather: null, error: 'Error, please try again'});
+        res.render('index', {
+          weather: null,
+          cityName: null,
+          cityTemp: null,
+          cityHumidity: null,
+          cityWind: null,
+          error: 'Error, please try again'
+        });
       } else {
         let tempQuery = `${weather.main.temp}`;
         let cityQuery = `${weather.name}`;
         let humitidyQuery = `${weather.main.humidity}`;
         let windQuery = `${weather.wind.speed}`;
-        res.render('index', {cityHumidity: humitidyQuery, cityWind: windQuery, cityName: cityQuery, cityTemp: tempQuery, error: null});
+        res.render('index', {
+          cityHumidity: humitidyQuery,
+          cityWind: windQuery,
+          cityName: cityQuery,
+          cityTemp: tempQuery,
+          error: null
+        });
         console.log(weather);
       }
     }
