@@ -13,18 +13,17 @@
   <body>
     <div class="container">
       <div class="row justify-content-center align-items-center">
-        <h1 class="mx-auto">Weather Now</h1>
+        <h1>Weather Now</h1>
       </div>
     </div>
     <div class="container">
-      <div class="row justify-content-center align-items-center">
-          <div class="container col-12">
-            <div class="card" style="width: 36rem;">
-              <div class="card-body">
+      <div class="row mx-auto justify-content-center">
+          <div class="container col-12 text-center">
                 <fieldset>
                   <form action="/" method="post">
-                    <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-                    <input type="submit" class="ghost-button" value="Get Weather">
+                    <input name="city" type="text" class="ghost-input" placeholder="Give me a City!" style="text-align: center" required>
+                    <br>
+                    <input type="submit" class="ghost-button" value="Get Weather Now">
                   </form>
                   <% if(weather !== null){ %>
                     <p><%= weather %></p>
@@ -33,9 +32,20 @@
                     <p><%= error %></p>
                   <% } %>
                 </fieldset>
-              </div>
-            </div>
           </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row mx-auto">
+        <div class="container col-4">
+          <h3>First</h3>
+        </div>
+        <div class="container col-4">
+          <h3>Second</h3>
+        </div>
+        <div class="container col-4">
+          <h3>Third</h3>
+        </div>
       </div>
     </div>
   </body>
