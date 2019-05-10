@@ -7,7 +7,6 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 const request = require('request');
-//const apiKey = '67f615aee5bd8a92aa50191e57c29320';
 const twilio = require('twilio');
 let keys = require('./lib/keys.js');
 let wkey = keys.wkey;
@@ -125,7 +124,7 @@ function processWeatherId(id) {
 app.post('/', function (req, res) {
   let city = req.body.city;
   // API call for weather data
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${wkey}`
+  let url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${wkey}`
   request(url, function (err, response, body) {
     if(err){
       res.render('index', {
@@ -178,7 +177,6 @@ END FORECAST CALL */
 
 /* START Twilio */
 
-//let client = new twilio('AC512696f090a2bf651bc12c9f043d80a7','80d8b3220d2961000af816022037c7e6');
 let client = new twilio(tid,tauth);
 
 function sendRainMessage() {
