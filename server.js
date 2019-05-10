@@ -58,11 +58,13 @@ app.post('/', function (req, res) {
         let cityQuery = `${weather.name}`;
         let humitidyQuery = `${weather.main.humidity}`;
         let windQuery = `${weather.wind.speed}`;
+        let iconUrl = processIcon(`${weather.weather[0].id}`);
         res.render('index', {
           cityHumidity: humitidyQuery,
           cityWind: windQuery,
           cityName: cityQuery,
           cityTemp: tempQuery,
+          cityIconUrl: iconUrl,
           error: null
         });
         console.log(weather);
@@ -77,17 +79,26 @@ app.post('/', function (req, res) {
   });
 })
 
-/* Traversal Functions */
+/* Process IconQuery */
 
-function traverseWeather(obj, prop, defaultval) {
-  if (typeof defaultval == 'undefined') defaultval = null;
-  prop = prop.split('.');
-  for (let i = 0; i < prop.length; i++) {
-    if (typeof obj[prop[i]] == 'undefined')
-      return defaultval;
-    obj = obj[prop[i]];
+function processIcon(num) {
+  if (typeof num == 'undefined') return null;
+  if (num >= 200 && num < 300) {
+    return 'http://openweathermap.org/img/w/11d.png';
+  } else if (num >=300 && num < 400) {
+    return 'http://openweathermap.org/img/w/09d.png';
+  } else if (num >= 500 && num < 600) {
+    return 'http://openweathermap.org/img/w/10d.png';
+  } else if (num >= 600 && num < 700) {
+    return 'http://openweathermap.org/img/w/13d.png';
+  } else if (num >= 700 && num < 800) {
+    return 'http://openweathermap.org/img/w/50d.png';
+  } else if (num == 800) {
+    return 'http://openweathermap.org/img/w/01d.png';
+  } else if (num > 800) {
+    return 'http://openweathermap.org/img/w/02d.png';
   }
-  return obj;
+  return null;
 }
 
 /* START Twilio */

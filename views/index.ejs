@@ -38,7 +38,7 @@
         <div class="container col-12 col-md-4 mt-2">
           <div class="card text-center mx-auto" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Placeholder</h5>
+              <img src=<% if (typeof cityIconUrl != 'undefined') { cityIconUrl } else { 'http://openweathermap.org/img/w/01d.png' } %> alt="weather icon">
               <p class="card-text">
                 <% if(cityHumidity !== null){ %>
                   <p class="weather-item"><%= cityHumidity %>%</p>
@@ -61,7 +61,7 @@
         <div class="container col-12 col-md-4 mt-2">
           <div class="card text-center mx-auto" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Placeholder</h5>
+              <img src=<% if (typeof cityIconUrl != 'undefined') { cityIconUrl } else { 'http://openweathermap.org/img/w/01d.png' } %> alt="weather icon">
               <p class="card-text">
                 <% if(cityTemp !== null){ %>
                   <p class="weather-item"><%= cityTemp %>&#8457</p>
@@ -84,7 +84,7 @@
         <div class="container col-12 col-md-4 mt-2">
           <div class="card text-center mx-auto" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Placeholder</h5>
+              <img src=<% if (typeof cityIconUrl != 'undefined') { cityIconUrl } else { 'http://openweathermap.org/img/w/01d.png' } %> alt="weather icon">
               <p class="card-text">
                 <% if(cityWind !== null){ %>
                   <p class="weather-item"><%= cityWind %> mph</p>
