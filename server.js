@@ -69,6 +69,7 @@ app.post('/', function (req, res) {
         });
         console.log(weather);
         for (let i = 0; i < `${weather.weather.length}`; i++) {
+          processWeatherId(`${weather.weather[i].id}`);
           if (`${weather.weather[i].main}` == 'Rain') {
             console.log('Rain!');
             sendRainMessage();
@@ -101,14 +102,53 @@ function processIcon(num) {
   return null;
 }
 
+/* Process WeatherID */
+
+function processWeatherId(id) {
+  if (id == 800) {
+    sendClearMessage();
+  } else if (id >= 600 && id < 700) {
+    sendSnowMessage();
+  } else if (id >= 300 && id < 600) {
+    sendRainMessage();
+  } else if (id >= 200 && id < 300) {
+    sendThunderMessage();
+  }
+}
+
 /* START Twilio */
 
 let client = new twilio('AC512696f090a2bf651bc12c9f043d80a7','80d8b3220d2961000af816022037c7e6');
+
 function sendRainMessage() {
   client.messages.create({
     to: 'RECIPIENT',
     from: 'TWILIO NUMBER',
     body: 'It may rain today! So remember to bring an umbrella!'
+  });
+}
+
+function sendClearMessage() {
+  client.messages.create({
+    to: 'RECIPIENT',
+    from: 'TWILIO NUMBER',
+    body: 'It is clear today! Have a good one!'
+  });
+}
+
+function sendThunderMessage() {
+  client.messages.create({
+    to: 'RECIPIENT',
+    from: 'TWILIO NUMBER',
+    body: 'Thunderstorm today! Be careful!';
+  });
+}
+
+function sendSnowMessage() {
+  client.messages.create({
+    to: 'RECIPIENT',
+    from: 'TWILIO NUMBER',
+    body: 'It is snowing today!';
   });
 }
 
