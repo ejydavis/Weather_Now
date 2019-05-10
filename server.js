@@ -120,6 +120,62 @@ function processWeatherId(id) {
   }
 }
 
+/*  START FORECAST CALL
+
+app.post('/', function (req, res) {
+  let city = req.body.city;
+  // API call for weather data
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${wkey}`
+  request(url, function (err, response, body) {
+    if(err){
+      res.render('index', {
+        weather: null,
+        cityName: null,
+        cityTemp: null,
+        cityHumidity: null,
+        cityWind: null,
+        error: 'Error, please try again'
+      });
+    } else {
+      let weather = JSON.parse(body);
+      if(weather.main == undefined) {
+        res.render('index', {
+          weather: null,
+          cityName: null,
+          cityTemp: null,
+          cityHumidity: null,
+          cityWind: null,
+          error: 'Error, please try again'
+        });
+      } else {
+        let tempQuery = `${weather.main.temp}`;
+        let cityQuery = `${weather.name}`;
+        let humitidyQuery = `${weather.main.humidity}`;
+        let windQuery = `${weather.wind.speed}`;
+        let iconUrl = processIcon(`${weather.weather[0].id}`);
+        res.render('index', {
+          cityHumidity: humitidyQuery,
+          cityWind: windQuery,
+          cityName: cityQuery,
+          cityTemp: tempQuery,
+          cityIconUrl: iconUrl,
+          error: null
+        });
+        console.log(weather);
+        for (let i = 0; i < `${weather.weather.length}`; i++) {
+          processWeatherId(`${weather.weather[i].id}`);
+          if (`${weather.weather[i].main}` == 'Rain') {
+            console.log('Rain!');
+            sendRainMessage();
+          }
+        }
+      }
+    }
+  });
+})
+
+END FORECAST CALL */
+
 /* START Twilio */
 
 //let client = new twilio('AC512696f090a2bf651bc12c9f043d80a7','80d8b3220d2961000af816022037c7e6');
